@@ -31,6 +31,11 @@ jobs:
           paths:
             - "vendor/bundle"
             - "gemfiles/vendor/bundle"
+      - run:
+          name: Run Tests
+          command: |
+            mkdir -p coverage
+            bundle exec rspec --format RspecJunitFormatter --out coverage/rspec.xml --format progress
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
